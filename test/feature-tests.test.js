@@ -6,10 +6,10 @@ const app = require('../app.js')
 const agent = request.agent(app)
 
 describe('Test the "dishwashers" results page', () => {
-  it('"/dishwashers" route exists', (done) => {
+  it('"/dishwashers" route returns the product listing page', (done) => {
     agent.get('/dishwashers')
       .end((err, res) => {
-        expect(res.status).to.equal(200)
+        expect(res.text).to.contain('<h1>Dishwashers</h1>')
         done()
       })
   })
