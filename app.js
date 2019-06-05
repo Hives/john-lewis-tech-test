@@ -1,8 +1,9 @@
 const express = require('express')
+
 const app = express()
 
-app.get('/', (req, res) => {
-  res.send('Hello world!')
+app.get('/dishwashers', (req, res) => {
+  res.send('Dishwashers')
 })
 
 module.exports = app
