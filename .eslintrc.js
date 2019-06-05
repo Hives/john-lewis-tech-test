@@ -2,7 +2,13 @@ module.exports = {
   'env': {
     'browser': true,
     'es6': true,
-    'jest': true
+    'mocha': true
+  },
+  "overrides": {
+    "files": ["*test.js"],
+    "rules": {
+      "handle-callback-err": "off"
+    }
   },
   'extends': 'standard',
   'globals': {
