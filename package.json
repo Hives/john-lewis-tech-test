@@ -1,0 +1,31 @@
+{
+  "name": "tech-test",
+  "version": "1.0.0",
+  "description": "John Lewis tech test",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hives/john-lewis-tech-test"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon server.js",
+    "test": "mocha",
+    "pretest": "eslint --fix --ignore-path .gitignore ."
+  },
+  "author": "Paul Martin",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
