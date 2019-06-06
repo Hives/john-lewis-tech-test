@@ -1,8 +1,4 @@
 <h1>Dishwashers</h1>
 {{#items}}
-  <section data-product-id="{{productId}}">
-    <img class="product-image" src="{{image}}" alt="{{title}}">
-    <h2 class="product-title">{{title}}</h2>
-    <p class="product-price">&pound;{{price}}<p>
-  </section>
+  {{> product-summary}}
 {{/items}}
