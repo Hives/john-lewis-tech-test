@@ -24,10 +24,20 @@ describe('Test the "dishwashers" results page', function () {
   })
 
   describe('"/dishwashers" route contains details of dishwashers', function () {
+    const productId = 1391191
+    let productElement
+
+    before(function () {
+      productElement = $(`[data-product-id=${productId}]`)
+    })
+
     it('contains an element with a particular data-product-id attribute', function () {
-      const productId = 1391191
-      const productElement = $(`[data-product-id=${productId}]`)
       expect(productElement.length).to.equal(1)
+    })
+
+    it('displays the product title', function () {
+      const productHtml = productElement.html()
+      expect(productHtml).to.contain('Indesit DIF 04B1 Ecotime Fully Integrated Dishwasher, White')
     })
   })
 })
