@@ -18,12 +18,12 @@ describe('Test the "dishwashers" results page', function () {
       })
   })
 
-  it('"/dishwashers" route returns the product listing page', function () {
+  it('"/dishwashers" route returns the dishwashers product grid page', function () {
     const heading = $('h1')
     expect(heading.text()).to.contain('Dishwashers')
   })
 
-  describe('"/dishwashers" route contains details of dishwashers', function () {
+  describe('"/dishwashers" route displays details of dishwashers', function () {
     const productId = 1391191
     let productElement
 
@@ -38,6 +38,11 @@ describe('Test the "dishwashers" results page', function () {
     it('displays the product title', function () {
       const productHtml = productElement.html()
       expect(productHtml).to.contain('Indesit DIF 04B1 Ecotime Fully Integrated Dishwasher, White')
+    })
+
+    it('displays the product price', function () {
+      const productHtml = productElement.html()
+      expect(productHtml).to.contain('219.00')
     })
   })
 })
