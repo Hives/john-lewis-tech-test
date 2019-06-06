@@ -33,7 +33,7 @@ describe('"dishwashers" results page', function () {
     let productHtml
 
     before(function () {
-      const productId = "1391191"
+      const productId = '1391191'
       productElement = $(`[data-product-id=${productId}]`)
       productHtml = productElement.html()
     })

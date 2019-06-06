@@ -17,9 +17,9 @@ app.get('/dishwashers', (req, res) => {
   request(apiUrl, { json: true }, (err, apiResponse, body) => {
     if (err) { return console.log(err) }
     const productList = apiResponse.body.products.map(
-      productData => new Product(productData) 
+      productData => new Product(productData)
     )
-    res.render('dishwashers', { productList: productList } )
+    res.render('dishwashers', { productList: productList })
   })
 })
 

@@ -1,5 +1,5 @@
 class Product {
-  constructor(data) {
+  constructor (data) {
     this.productId = data.productId
     this.title = data.title
     this.price = data.price.now
