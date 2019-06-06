@@ -1,8 +1,8 @@
 class ProductList {
-  constructor (data, productSummaryConstructor = require('./product-summary.js')) {
-    this.productSummaryConstructor = productSummaryConstructor
+  constructor (data, ProductSummary = require('./product-summary.js')) {
+    this.ProductSummary = ProductSummary
     this.items = data.products.map(
-      productData => new this.productSummaryConstructor(productData)
+      productData => new this.ProductSummary(productData)
     )
   }
 }

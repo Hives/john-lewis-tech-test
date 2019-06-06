@@ -11,13 +11,12 @@ describe('ProductList class', function () {
     }
     const mockData = {
       products: [
-        { mockProperty: "first item" },
-        { mockProperty: "second item" }
+        { mockProperty: 'first item' },
+        { mockProperty: 'second item' }
       ]
     }
     const productList = new ProductList(mockData, ProductSummaryMock)
-    expect(productList.items[0].mockProperty).to.equal("first item")
-    expect(productList.items[1].mockProperty).to.equal("second item")
+    expect(productList.items[0].mockProperty).to.equal('first item')
+    expect(productList.items[1].mockProperty).to.equal('second item')
   })
 })
-

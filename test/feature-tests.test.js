@@ -9,7 +9,7 @@ const app = require('../app.js')
 const agent = request.agent(app)
 
 nock('https://api.johnlewis.com/v1/products')
-  .get('/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20')
+  .get('/search?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20&q=dishwasher')
   .reply(200, require('./mockApiResponses/dishwashers.json'))
 
 describe('"dishwashers" results page', function () {
