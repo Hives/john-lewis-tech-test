@@ -1,7 +1,8 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const request = require('request')
-const Product = require('./models/product.js')
+const helpers = require('./helpers/helpers.js')
+const ProductList = require('./models/product-list.js')
 
 const app = express()
 
@@ -16,10 +17,12 @@ app.get('/dishwashers', (req, res) => {
 
   request(apiUrl, { json: true }, (err, apiResponse, body) => {
     if (err) { return console.log(err) }
-    const productList = apiResponse.body.products.map(
-      productData => new Product(productData)
-    )
-    res.render('dishwashers', { productList: productList })
+
+    // Sometimes the API wouldn't return any data, so I put this here...
+    apiResponse = helpers.mockApiDataIfNoResponse(apiResponse)
+
+    const productList = new ProductList(apiResponse.body)
+    res.render('dishwashers', { items: productList.items })
   })
 })
 
