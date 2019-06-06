@@ -9,6 +9,7 @@ const app = express()
 
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
+app.use(express.static('public'))
 
 app.get('/dishwashers', (req, res) => {
   const queryUrl = apiQuery.construct({
