@@ -23,12 +23,14 @@ describe('Test the "dishwashers" results page', function () {
     expect(heading.text()).to.contain('Dishwashers')
   })
 
-  describe('"/dishwashers" route displays details of dishwashers', function () {
-    const productId = 1391191
+  describe('"/dishwashers" route displays details of a dishwasher', function () {
     let productElement
+    let productHtml
 
     before(function () {
+      const productId = 1391191
       productElement = $(`[data-product-id=${productId}]`)
+      productHtml = productElement.html()
     })
 
     it('contains an element with a particular data-product-id attribute', function () {
@@ -36,13 +38,16 @@ describe('Test the "dishwashers" results page', function () {
     })
 
     it('displays the product title', function () {
-      const productHtml = productElement.html()
       expect(productHtml).to.contain('Indesit DIF 04B1 Ecotime Fully Integrated Dishwasher, White')
     })
 
     it('displays the product price', function () {
-      const productHtml = productElement.html()
       expect(productHtml).to.contain('219.00')
+    })
+
+    it('displays the product image', function () {
+      const imageElement = productElement.find('img')
+      expect(imageElement.attr('src')).to.equal('//johnlewis.scene7.com/is/image/JohnLewis/233326789?')
     })
   })
 })
