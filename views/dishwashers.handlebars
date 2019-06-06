@@ -1,6 +1,8 @@
 <h1>Dishwashers</h1>
-<section data-product-id="1391191">
-  <img class="product-image" src="//johnlewis.scene7.com/is/image/JohnLewis/233326789?" alt="Indesit DIF 04B1 Ecotime Fully Integrated Dishwasher, White">
-  <h2 class="product-title">Indesit DIF 04B1 Ecotime Fully Integrated Dishwasher, White</h2>
-  <p class="product-price">&pound;219.00<p>
-</section>
+{{#productList}}
+  <section data-product-id="{{productId}}">
+    <img class="product-image" src="{{image}}" alt="{{title}}">
+    <h2 class="product-title">{{title}}</h2>
+    <p class="product-price">&pound;{{price.now}}<p>
+  </section>
+{{/productList}}

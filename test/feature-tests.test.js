@@ -1,13 +1,18 @@
 const chai = require('chai')
 const request = require('supertest')
 const cheerio = require('cheerio')
+const nock = require('nock')
 
 const expect = chai.expect
 
 const app = require('../app.js')
 const agent = request.agent(app)
 
-describe('Test the "dishwashers" results page', function () {
+nock('https://api.johnlewis.com/v1/products')
+  .get('/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20')
+  .reply(200, require('./mockApiResponses/dishwashers.json'))
+
+describe('"dishwashers" results page', function () {
   let $
 
   before(function (done) {
@@ -28,7 +33,7 @@ describe('Test the "dishwashers" results page', function () {
     let productHtml
 
     before(function () {
-      const productId = 1391191
+      const productId = "1391191"
       productElement = $(`[data-product-id=${productId}]`)
       productHtml = productElement.html()
     })
