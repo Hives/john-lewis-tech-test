@@ -24,7 +24,7 @@ app.get('/dishwashers', (req, res) => {
     if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...
-    body = helpers.mockApiDataIfNoDataReturned(body, queryUrl, "dishwashers.json")
+    body = helpers.mockApiDataIfNoDataReturned(body, queryUrl, 'dishwashers.json')
 
     const productList = new ProductList(body)
     res.render('product-grid', {
