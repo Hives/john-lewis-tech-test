@@ -24,12 +24,30 @@ app.get('/dishwashers', (req, res) => {
     if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...
-    apiResponse = helpers.mockApiDataIfNoDataReturned(apiResponse)
+    body = helpers.mockApiDataIfNoDataReturned(body, queryUrl, "dishwashers.json")
 
-    const productList = new ProductList(apiResponse.body)
+    const productList = new ProductList(body)
     res.render('product-grid', {
       title: 'Dishwashers',
       items: productList.items
+    })
+  })
+})
+
+app.get('/product/:productId', (req, res) => {
+  const productId = req.params.productId
+  const queryUrl = apiQuery.construct({
+    stub: productId
+  })
+
+  request(queryUrl, { json: true }, (err, apiResponse, body) => {
+    if (err) { return console.log(err) }
+
+    // Sometimes the API wouldn't return any data, so I put this here...
+    body = helpers.mockApiDataIfNoDataReturned(body, queryUrl, `product-${productId}.json`)
+
+    res.render('product-details', {
+      body: body
     })
   })
 })

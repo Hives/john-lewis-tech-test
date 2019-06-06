@@ -5,7 +5,6 @@ const ProductSummary = require('../models/product-summary.js')
 describe('ProductSummary class', function () {
   const productData = require('./mockApiResponses/dishwashers.json').products
   const productSummary = new ProductSummary(productData[0])
-  console.log(productData[3])
 
   it('has a productId', function () {
     expect(productSummary.productId).to.equal('1391191')

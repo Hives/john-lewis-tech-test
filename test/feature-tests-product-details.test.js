@@ -15,13 +15,16 @@ nock('https://api.johnlewis.com/v1/products')
 describe('product details page', function () {
   let $
 
-  it('exists', function (done) {
-    agent.get('/product?productId=1391191')
+  before(function (done) {
+    agent.get('/product/1391191')
       .end(function (err, res) {
-        expect(res.status).to.equal(200)
+        $ = cheerio.load(res.text)
         done()
       })
   })
 
-
+  it('"/product/:productID" route returns productId\'s details page', function () {
+    const heading = $('h1')
+    expect(heading.text()).to.contain('Indesit DIF 04B1 Ecotime Fully Integrated Dishwasher, White')
+  })
 })
