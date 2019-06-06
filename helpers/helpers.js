@@ -1,5 +1,5 @@
 const helpers = {
-  mockApiDataIfNoResponse: function(data) {
+  mockApiDataIfNoDataReturned: function(data) {
     if (process.env.NODE_ENV != "test") {
       if (data.body.products === undefined) {
         console.log("The API didn't return any data, so we'll use the saved data")
