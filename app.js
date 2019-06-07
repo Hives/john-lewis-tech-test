@@ -1,9 +1,11 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const request = require('request')
-const helpers = require('./helpers/helpers.js')
+
 const ProductList = require('./models/product-list.js')
+
 const apiQuery = require('./helpers/api-query.js')
+const mockApiDataIfNoDataReturned = require('./helpers/api-workaround.js')
 
 const app = express()
 
@@ -21,10 +23,11 @@ app.get('/dishwashers', (req, res) => {
   })
 
   request(queryUrl, { json: true }, (err, apiResponse, body) => {
-    if (err) { return console.log(err) }
+    // comment this out while working with no wifi
+    // if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...
-    body = helpers.mockApiDataIfNoDataReturned(body, queryUrl, 'dishwashers.json')
+    body = mockApiDataIfNoDataReturned(body, queryUrl, 'dishwashers.json')
 
     const productList = new ProductList(body)
     res.render('product-grid', {
@@ -41,10 +44,11 @@ app.get('/product/:productId', (req, res) => {
   })
 
   request(queryUrl, { json: true }, (err, apiResponse, body) => {
-    if (err) { return console.log(err) }
+    // comment this out while working with no wifi
+    // if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...
-    body = helpers.mockApiDataIfNoDataReturned(body, queryUrl, `product-${productId}.json`)
+    body = mockApiDataIfNoDataReturned(body, queryUrl, `product-${productId}.json`)
 
     res.render('product-details', {
       body: body
