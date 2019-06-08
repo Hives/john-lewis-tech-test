@@ -57,11 +57,18 @@ describe('product details page', function () {
     it('displays the guarantee details', function () {
       expect(productHtml).to.contain("2 year guarantee included")
     })
+
+    it('displays the product information', function () {
+      expect(productHtml).to.contain("the Hotpoint LTB4B019 integrated dishwasher is a value packed washing machine")
+    })
+
+    it('displays the product code', function () {
+      expect(productHtml).to.contain("88702102")
+    })
   })
 
   // special offer details - what if not present?
-  // guarantee information (present/not present?)
-  // product information
+  // guarantee information - is it always present?
   // product code
   // attributes
 })
