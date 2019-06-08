@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const request = require('request')
 
 const ProductList = require('./models/product-list.js')
+const ProductDetails = require('./models/product-details.js')
 
 const apiQuery = require('./helpers/api-query.js')
 const mockApiDataIfNoDataReturned = require('./helpers/api-workaround.js')
@@ -24,7 +25,7 @@ app.get('/dishwashers', (req, res) => {
 
   request(queryUrl, { json: true }, (err, apiResponse, body) => {
     // comment this out while working with no wifi
-    // if (err) { return console.log(err) }
+    if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...
     body = mockApiDataIfNoDataReturned(body, queryUrl, 'dishwashers.json')
@@ -45,13 +46,14 @@ app.get('/product/:productId', (req, res) => {
 
   request(queryUrl, { json: true }, (err, apiResponse, body) => {
     // comment this out while working with no wifi
-    // if (err) { return console.log(err) }
+    if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...
     body = mockApiDataIfNoDataReturned(body, queryUrl, `product-${productId}.json`)
 
+    const productDetails = new ProductDetails(body)
     res.render('product-details', {
-      body: body
+      product: productDetails
     })
   })
 })
