@@ -58,12 +58,20 @@ describe('product details page', function () {
       expect(productHtml).to.contain("2 year guarantee included")
     })
 
-    it('displays the product information', function () {
-      expect(productHtml).to.contain("the Hotpoint LTB4B019 integrated dishwasher is a value packed washing machine")
-    })
-
     it('displays the product code', function () {
       expect(productHtml).to.contain("88702102")
+    })
+
+    describe('product information', function () {
+      it('displays the product information', function () {
+        expect(productHtml).to.contain("the Hotpoint LTB4B019 integrated dishwasher is a value packed washing machine")
+      })
+
+      it('the html in the product info is not escaped', function () {
+        const productInfoHtml = productElement.find('.product-information').text()
+        console.log(productInfoHtml)
+        expect(productInfoHtml).not.to.contain('<p>')
+      })
     })
 
     describe('attributes', function () {
