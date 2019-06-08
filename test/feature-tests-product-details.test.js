@@ -49,9 +49,17 @@ describe('product details page', function () {
     it('displays the special offer details', function () {
       expect(productHtml).to.contain("Receive a 100 day money back guarantee")
     })
+
+    it('displays the special offer details', function () {
+      expect(productHtml).to.contain("Receive a 100 day money back guarantee")
+    })
+
+    it('displays the guarantee details', function () {
+      expect(productHtml).to.contain("2 year guarantee included")
+    })
   })
 
-  // special offer details (present/not present)
+  // special offer details - what if not present?
   // guarantee information (present/not present?)
   // product information
   // product code
