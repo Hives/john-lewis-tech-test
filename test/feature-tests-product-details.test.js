@@ -65,10 +65,21 @@ describe('product details page', function () {
     it('displays the product code', function () {
       expect(productHtml).to.contain("88702102")
     })
+
+    describe('attributes', function () {
+      it('displays the product\'s first attribute', function () {
+        expect(productHtml).to.contain("Eligible for International Delivery")
+        expect(productHtml).to.contain("NO")
+      })
+
+      it('displays the product\'s last attribute', function () {
+        expect(productHtml).to.contain("Estimated Annual Water Consumption")
+        expect(productHtml).to.contain("3080L")
+      })
+    })
+
   })
 
   // special offer details - what if not present?
   // guarantee information - is it always present?
-  // product code
-  // attributes
 })

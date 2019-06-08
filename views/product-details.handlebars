@@ -10,4 +10,9 @@
     {{product.productInformation}}
   </div>
   <p class="product-code">{{product.code}}</p>
+  <div class-"product-attributes">
+    {{#product.attributes}}
+      <p><span>{{name}}</span><span>{{value}}</span></p>
+    {{/product.attributes}}
+  </div>
 </div>
