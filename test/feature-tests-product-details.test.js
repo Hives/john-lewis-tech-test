@@ -25,7 +25,7 @@ describe('product details page', function () {
 
   it('"/product/:productID" route returns productId\'s details page', function () {
     const heading = $('h1')
-    expect(heading.text()).to.contain("Hotpoint LTB4B019 Aquarius Integrated Dishwasher, White")
+    expect(heading.text()).to.contain('Hotpoint LTB4B019 Aquarius Integrated Dishwasher, White')
   })
 
   describe('a particular product page', function () {
@@ -37,7 +37,7 @@ describe('product details page', function () {
 
     it('displays the product image', function () {
       const firstImage = productElement.find('img')
-      expect(firstImage.attr('src')).to.equal("//johnlewis.scene7.com/is/image/JohnLewis/234676712?")
+      expect(firstImage.attr('src')).to.equal('//johnlewis.scene7.com/is/image/JohnLewis/234676712?')
     })
   })
 
