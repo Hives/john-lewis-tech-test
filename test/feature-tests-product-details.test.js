@@ -30,19 +30,27 @@ describe('product details page', function () {
 
   describe('a particular product page', function () {
     let productElement
+    let productHtml
 
     before(function () {
       productElement = $('.standard-product-container')
+      productHtml = productElement.html()
     })
 
     it('displays the product image', function () {
       const firstImage = productElement.find('img')
       expect(firstImage.attr('src')).to.equal('//johnlewis.scene7.com/is/image/JohnLewis/234676712?')
     })
+
+    it('displays the product price', function () {
+      expect(productHtml).to.contain('219.00')
+    })
+
+    it('displays the special offer details', function () {
+      expect(productHtml).to.contain("Receive a 100 day money back guarantee")
+    })
   })
 
-  // image
-  // price
   // special offer details (present/not present)
   // guarantee information (present/not present?)
   // product information

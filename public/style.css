@@ -57,7 +57,7 @@ h1 {
   border: thin solid #d5d1c4;
 }
 
-.product-summary-image-frame {
+.product-summary .image-frame {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +66,7 @@ h1 {
   margin-bottom: 8px;
 }
 
-.product-summary-image {
+.product-summary img {
   display: block;
   margin: 0 auto;
   vertical-align: middle;
@@ -74,6 +74,6 @@ h1 {
   max-height: 100%;
 }
 
-.product-summary-price {
+.product-summary .product-price {
   font-weight: 400;
 }
