@@ -2,7 +2,7 @@ class ProductDetails {
   constructor (data) {
     this.productId = data.productId
     this.title = data.title
-    this.price = data.price.now
+    this.price = data.price.now.to || data.price.now
     this.images = data.media.images.urls
     this.code = data.code
     this.productInformation = data.details.productInformation

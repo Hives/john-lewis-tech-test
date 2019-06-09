@@ -17,6 +17,7 @@ describe('ProductDetails class', function () {
   it('has a price', function () {
     expect(productDetails.price).to.equal('219.00')
   })
+
   // need to also deal with the case where for example
   // data.price.now == { then: 100, now, 80 }
 
@@ -62,6 +63,17 @@ describe('ProductDetails class', function () {
 
     it('if the value is "NO" in the api response, then it should appear as "No"', function () {
       expect(productDetails.attributes[0].value).to.equal('No')
+    })
+  })
+
+  describe('some items have a discounted price', function () {
+    it('these ones should also have a price when converted to a ProductSummary', function () {
+      const productDataDiscounted = productData
+      productDataDiscounted.price = {
+          now: { from: '120', to: '100' }
+      }
+      const productDetailsDiscounted = new ProductDetails(productDataDiscounted)
+      expect(productDetailsDiscounted.price).to.equal('100')
     })
   })
 })
