@@ -63,7 +63,7 @@ app.get('/product/:productId', (req, res) => {
 })
 
 app.server = app.listen(3000, () => {
-  if(process.env.NODE_ENV !== 'test') {
+  if (process.env.NODE_ENV !== 'test') {
     console.log('Listening on port 3000')
   }
 })

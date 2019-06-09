@@ -70,7 +70,7 @@ describe('ProductDetails class', function () {
     it('these ones should also have a price when converted to a ProductSummary', function () {
       const productDataDiscounted = productData
       productDataDiscounted.price = {
-          now: { from: '120', to: '100' }
+        now: { from: '120', to: '100' }
       }
       const productDetailsDiscounted = new ProductDetails(productDataDiscounted)
       expect(productDetailsDiscounted.price).to.equal('100')

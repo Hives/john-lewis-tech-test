@@ -87,7 +87,7 @@ describe('product details page', function () {
     })
   })
 
-  after(function(done) {
+  after(function (done) {
     app.server.close()
     done()
   })
@@ -96,7 +96,7 @@ describe('product details page', function () {
 describe('if the api returns an error', function () {
   let response
 
-  before(function(done) {
+  before(function (done) {
     nock('https://api.johnlewis.com/v1/products')
       .get('/2135702?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb')
       .replyWithError('Something went wrong with the api request')
@@ -112,7 +112,7 @@ describe('if the api returns an error', function () {
     expect(response).to.contain('Something went wrong with the api request')
   })
 
-  after(function(done) {
+  after(function (done) {
     app.server.close()
     done()
   })

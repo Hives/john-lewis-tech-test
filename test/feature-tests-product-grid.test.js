@@ -8,7 +8,6 @@ const expect = chai.expect
 const app = require('../app.js')
 const agent = request.agent(app)
 
-
 describe('"dishwashers" results page', function () {
   describe('if the api sends a good response', function () {
     let $
@@ -63,7 +62,7 @@ describe('"dishwashers" results page', function () {
       })
     })
 
-    after(function(done) {
+    after(function (done) {
       app.server.close()
       done()
     })
@@ -72,7 +71,7 @@ describe('"dishwashers" results page', function () {
   describe('if the api returns an error', function () {
     let response
 
-    before(function(done) {
+    before(function (done) {
       nock('https://api.johnlewis.com/v1/products')
         .get('/search?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20&q=dishwasher')
         .replyWithError('Something went wrong with the api request')
@@ -88,10 +87,9 @@ describe('"dishwashers" results page', function () {
       expect(response).to.contain('Something went wrong with the api request')
     })
 
-    after(function(done) {
+    after(function (done) {
       app.server.close()
       done()
     })
   })
 })
-
