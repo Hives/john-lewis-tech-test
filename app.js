@@ -24,7 +24,6 @@ app.get('/dishwashers', (req, res) => {
   })
 
   request(queryUrl, { json: true }, (err, apiResponse, body) => {
-    // comment this out while working with no wifi
     if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...
@@ -45,7 +44,6 @@ app.get('/product/:productId', (req, res) => {
   })
 
   request(queryUrl, { json: true }, (err, apiResponse, body) => {
-    // comment this out while working with no wifi
     if (err) { return console.log(err) }
 
     // Sometimes the API wouldn't return any data, so I put this here...

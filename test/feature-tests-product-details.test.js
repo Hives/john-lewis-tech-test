@@ -47,24 +47,24 @@ describe('product details page', function () {
     })
 
     it('displays the special offer details', function () {
-      expect(productHtml).to.contain("Receive a 100 day money back guarantee")
+      expect(productHtml).to.contain('Receive a 100 day money back guarantee')
     })
 
     it('displays the special offer details', function () {
-      expect(productHtml).to.contain("Receive a 100 day money back guarantee")
+      expect(productHtml).to.contain('Receive a 100 day money back guarantee')
     })
 
     it('displays the guarantee details', function () {
-      expect(productHtml).to.contain("2 year guarantee included")
+      expect(productHtml).to.contain('2 year guarantee included')
     })
 
     it('displays the product code', function () {
-      expect(productHtml).to.contain("88702102")
+      expect(productHtml).to.contain('88702102')
     })
 
     describe('product information', function () {
       it('displays the product information', function () {
-        expect(productHtml).to.contain("the Hotpoint LTB4B019 integrated dishwasher is a value packed washing machine")
+        expect(productHtml).to.contain('the Hotpoint LTB4B019 integrated dishwasher is a value packed washing machine')
       })
 
       it('the html in the product info is not escaped', function () {
@@ -75,13 +75,13 @@ describe('product details page', function () {
 
     describe('attributes', function () {
       it('displays the product\'s first attribute', function () {
-        expect(productHtml).to.contain("Eligible for International Delivery")
-        expect(productHtml).to.contain("No")
+        expect(productHtml).to.contain('Eligible for International Delivery')
+        expect(productHtml).to.contain('No')
       })
 
       it('displays the product\'s last attribute', function () {
-        expect(productHtml).to.contain("Estimated Annual Water Consumption")
-        expect(productHtml).to.contain("3080L")
+        expect(productHtml).to.contain('Estimated Annual Water Consumption')
+        expect(productHtml).to.contain('3080L')
       })
     })
 
@@ -89,7 +89,6 @@ describe('product details page', function () {
       const backButton = $('a.back-button')
       expect(backButton.attr('href')).to.equal('/dishwashers')
     })
-
   })
 
   // special offer details - what if not present?
