@@ -85,7 +85,7 @@ main {
   font-size: 1.2em;
 }
 
-a.back-arrow {
+a.back-button {
   position: absolute;
   left: 30px;
   top: 50%;
