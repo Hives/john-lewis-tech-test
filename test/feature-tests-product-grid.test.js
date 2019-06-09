@@ -54,5 +54,10 @@ describe('"dishwashers" results page', function () {
       const imageElement = productElement.find('img')
       expect(imageElement.attr('src')).to.equal('//johnlewis.scene7.com/is/image/JohnLewis/233326789?')
     })
+
+    it('the image links to the product details page', function () {
+      const link = productElement.find('a.image-frame')
+      expect(link.attr('href')).to.equal('/product/1391191')
+    })
   })
 })
