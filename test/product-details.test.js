@@ -55,5 +55,13 @@ describe('ProductDetails class', function () {
     it('have a value', function () {
       expect(productDetails.attributes[1].value).to.equal('H82 x W59.5 x D57 cm')
     })
+
+    it('if the value is "YES" in the api response, then it should appear as "Yes"', function () {
+      expect(productDetails.attributes[12].value).to.equal('Yes')
+    })
+
+    it('if the value is "NO" in the api response, then it should appear as "No"', function () {
+      expect(productDetails.attributes[0].value).to.equal('No')
+    })
   })
 })

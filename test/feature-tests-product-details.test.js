@@ -69,7 +69,6 @@ describe('product details page', function () {
 
       it('the html in the product info is not escaped', function () {
         const productInfoHtml = productElement.find('.product-information').text()
-        console.log(productInfoHtml)
         expect(productInfoHtml).not.to.contain('<p>')
       })
     })
@@ -77,7 +76,7 @@ describe('product details page', function () {
     describe('attributes', function () {
       it('displays the product\'s first attribute', function () {
         expect(productHtml).to.contain("Eligible for International Delivery")
-        expect(productHtml).to.contain("NO")
+        expect(productHtml).to.contain("No")
       })
 
       it('displays the product\'s last attribute', function () {
