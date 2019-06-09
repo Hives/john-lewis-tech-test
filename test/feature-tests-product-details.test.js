@@ -85,6 +85,11 @@ describe('product details page', function () {
       })
     })
 
+    it('has a back button', function () {
+      const backButton = $('a.back-button')
+      expect(backButton.attr('href')).to.equal('/dishwashers')
+    })
+
   })
 
   // special offer details - what if not present?
