@@ -1,5 +1,11 @@
 # John Lewis tech test
 
+### Product grid
+<img src="images/product-grid.png" width=500>
+
+### Product details
+<img src="images/product-details.png" width=500>
+
 ## Installation
 
 1. Clone repo
