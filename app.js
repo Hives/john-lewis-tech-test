@@ -24,7 +24,10 @@ app.get('/dishwashers', (req, res) => {
   })
 
   request(queryUrl, { json: true }, (err, apiResponse, body) => {
-    if (err) { return console.log(err) }
+    if (err) {
+      res.render('error', { errorMessage: err })
+      return
+    }
 
     // Sometimes the API wouldn't return any data, so I put this here...
     body = mockApiDataIfNoDataReturned(body, queryUrl, 'dishwashers.json')
@@ -60,7 +63,9 @@ app.get('/product/:productId', (req, res) => {
 })
 
 app.server = app.listen(3000, () => {
-  console.log('Listening on port 3000')
+  if(process.env.NODE_ENV !== 'test') {
+    console.log('Listening on port 3000')
+  }
 })
 
 module.exports = app

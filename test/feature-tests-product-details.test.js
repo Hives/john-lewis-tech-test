@@ -8,9 +8,9 @@ const expect = chai.expect
 const app = require('../app.js')
 const agent = request.agent(app)
 
-let $
-
 describe('product details page', function () {
+  let $
+
   before(function (done) {
     nock('https://api.johnlewis.com/v1/products')
       .get('/2135702?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb')
@@ -25,7 +25,6 @@ describe('product details page', function () {
 
   it('"/product/:productID" route returns productId\'s details page', function () {
     const heading = $('h1')
-    console.log($)
     expect(heading.text()).to.contain('Hotpoint LTB4B019 Aquarius Integrated Dishwasher, White')
   })
 
@@ -95,6 +94,8 @@ describe('product details page', function () {
 })
 
 describe('if the api returns an error', function () {
+  let response
+
   before(function(done) {
     nock('https://api.johnlewis.com/v1/products')
       .get('/2135702?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb')
@@ -102,13 +103,13 @@ describe('if the api returns an error', function () {
 
     agent.get('/product/2135702')
       .end(function (err, res) {
-        $ = cheerio.load(res.text)
+        response = res.text
         done()
       })
   })
 
   it('displays an error message', function () {
-    expect($.text()).to.contain('Something went wrong with the api request')
+    expect(response).to.contain('Something went wrong with the api request')
   })
 
   after(function(done) {
