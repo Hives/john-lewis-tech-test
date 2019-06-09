@@ -8,14 +8,14 @@ const expect = chai.expect
 const app = require('../app.js')
 const agent = request.agent(app)
 
-nock('https://api.johnlewis.com/v1/products')
-  .get('/2135702?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb')
-  .reply(200, require('./mockApiResponses/product-2135702.json'))
+let $
 
 describe('product details page', function () {
-  let $
-
   before(function (done) {
+    nock('https://api.johnlewis.com/v1/products')
+      .get('/2135702?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb')
+      .reply(200, require('./mockApiResponses/product-2135702.json'))
+
     agent.get('/product/2135702')
       .end(function (err, res) {
         $ = cheerio.load(res.text)
@@ -25,6 +25,7 @@ describe('product details page', function () {
 
   it('"/product/:productID" route returns productId\'s details page', function () {
     const heading = $('h1')
+    console.log($)
     expect(heading.text()).to.contain('Hotpoint LTB4B019 Aquarius Integrated Dishwasher, White')
   })
 
@@ -44,10 +45,6 @@ describe('product details page', function () {
 
     it('displays the product price', function () {
       expect(productHtml).to.contain('219.00')
-    })
-
-    it('displays the special offer details', function () {
-      expect(productHtml).to.contain('Receive a 100 day money back guarantee')
     })
 
     it('displays the special offer details', function () {
@@ -91,6 +88,31 @@ describe('product details page', function () {
     })
   })
 
-  // special offer details - what if not present?
-  // guarantee information - is it always present?
+  after(function(done) {
+    app.server.close()
+    done()
+  })
+})
+
+describe('if the api returns an error', function () {
+  before(function(done) {
+    nock('https://api.johnlewis.com/v1/products')
+      .get('/2135702?key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb')
+      .replyWithError('Something went wrong with the api request')
+
+    agent.get('/product/2135702')
+      .end(function (err, res) {
+        $ = cheerio.load(res.text)
+        done()
+      })
+  })
+
+  it('displays an error message', function () {
+    expect($.text()).to.contain('Something went wrong with the api request')
+  })
+
+  after(function(done) {
+    app.server.close()
+    done()
+  })
 })

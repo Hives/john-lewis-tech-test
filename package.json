@@ -8,9 +8,15 @@
     "url": "https://github.com/Hives/john-lewis-tech-test"
   },
   "scripts": {
-    "start": "./node_modules/.bin/nodemon server.js",
+    "start": "./node_modules/.bin/nodemon app.js",
     "test": "NODE_ENV=test nyc mocha",
     "lint": "eslint --fix --ignore-path .gitignore ."
+  },
+  "nyc": {
+    "exclude": [
+      "helpers/api-workaround.js",
+      "**/*.test.js"
+    ]
   },
   "author": "Paul Martin",
   "license": "ISC",
