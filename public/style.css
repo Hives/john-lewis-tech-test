@@ -35,10 +35,12 @@ body {
 }
 
 header {
+  position: relative;
   text-align: center;
   background-color: #f9f9f9;
   padding: 1.4rem 0;
   color: #727270;
+  border-bottom: thin solid #e2e0d7;
 }
 
 h1 {
@@ -57,7 +59,7 @@ h1 {
   border: thin solid #d5d1c4;
 }
 
-.product-summary .image-frame {
+.image-frame {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +68,7 @@ h1 {
   margin-bottom: 8px;
 }
 
-.product-summary img {
+.image-frame img {
   display: block;
   margin: 0 auto;
   vertical-align: middle;
@@ -77,3 +79,88 @@ h1 {
 .product-summary .product-price {
   font-weight: 400;
 }
+
+main {
+  position: relative;
+  font-size: 1.2em;
+}
+
+a.back-arrow {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  margin-top: -12px;
+  width: 13px;
+  height: 25px;
+  display: block;
+  background-image: url('./back-arrow.png');
+  background-size: contain;
+  text-indent: -9999px;
+}
+
+.standard-product-container {
+  width: 67%;
+  padding: 30px 0;
+  border-right: thin solid #d5d1c4;
+}
+
+.standard-product-container h2, .standard-product-container p {
+  margin: 0.4em 0;
+}
+
+.standard-product-container h2 {
+  font-size: 2em;
+}
+
+.standard-product-container .carousel,
+.standard-product-container .product-information,
+.standard-product-container .product-attributes {
+  margin: 0 60px 30px 60px;
+}
+
+.standard-product-container .carousel {
+  height: 450px;
+}
+
+.standard-product-container .image-frame {
+  height: 100%;
+}
+
+.standard-product-container .read-more {
+  margin: 0 0 30px 60px;
+  padding: 20px 0;
+  color: #284e36;
+  font-size: 1.6em;
+  border-top: thin solid #d5d1c4;
+  border-bottom: thin solid #d5d1c4;
+}
+
+.standard-product-container .headline-information {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 33%;
+  padding: 30px 60px;
+  font-weight: 400;
+}
+
+.standard-product-container .product-price {
+  color: #393939;
+  font-size: 2em;
+}
+
+.standard-product-container .special-offers {
+  color: #990000;
+}
+
+.standard-product-container .included-services {
+  color: #284e36;
+}
+
+.standard-product-container .attribute {
+  display: flex;
+  justify-content: space-between;
+  border-top: thin solid #d5d1c4;
+  padding: 20px 0;
+}
+

@@ -1,18 +1,35 @@
-<h1>{{product.title}}</h1>
-<div class="standard-product-container">
-  <div class="carousel">
-    <img src="{{product.images.[0]}}">
+<header>
+  <h1>{{product.title}}</h1>
+  <a class="back-arrow" href="/dishwashers">Back</a>
+</header>
+<main>
+  <div class="standard-product-container">
+    <div class="carousel">
+      <div class="image-frame">
+        <img src="{{product.images.[0]}}">
+      </div>
+    </div>
+    <div class="headline-information">
+      <p class="product-price">&pound;{{product.price}}</p>
+      <p class="special-offers">{{product.displaySpecialOffer}}</p>
+      <p class="included-services">{{product.includedServices}}</p>
+    </div>
+    <div class="product-information">
+      <h2>Product information</h2>
+      <p class="product-code">Product code: {{product.code}}</p>
+      {{{product.productInformation}}}
+    </div>
+    <div class="read-more">
+      Read more
+    </div>
+    <div class="product-attributes">
+      <h2>Product specification</h2>
+      {{#product.attributes}}
+        <div class="attribute">
+          <div class="attribute-name">{{name}}</div >
+          <div class="attribute-value">{{value}}</div >
+        </div>
+      {{/product.attributes}}
+    </div>
   </div>
-  <p class="product-price">&pound;{{product.price}}</p>
-  <p class="special-offers">{{product.displaySpecialOffer}}</p>
-  <p class="included-services">{{product.includedServices}}</p>
-  <div class="product-information">
-    {{{product.productInformation}}}
-  </div>
-  <p class="product-code">{{product.code}}</p>
-  <div class-"product-attributes">
-    {{#product.attributes}}
-      <p><span>{{name}}</span><span>{{value}}</span></p>
-    {{/product.attributes}}
-  </div>
-</div>
+</main>
