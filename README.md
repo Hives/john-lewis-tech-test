@@ -2,6 +2,8 @@
 
 A website allowing users to see details of dishwashers sold by John Lewis, using data from the John Lewis API.
 
+Also trying out Docker.
+
 ### Product grid
 <img src="images/product-grid.png" width=500>
 
