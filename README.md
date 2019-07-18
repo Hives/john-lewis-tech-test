@@ -17,7 +17,7 @@ A website allowing users to see details of dishwashers sold by John Lewis, using
 
 ## Testing + test coverage
 
-After installing execute `npm test` to run the tests and check test coverage.
+After installing, execute `npm test` to run the tests and check test coverage.
 
 <img src="images/tests-and-test-coverage.png" width=500>
 
@@ -43,7 +43,7 @@ When making API requests from my Node app, sometimes the API would send me the d
 
 I couldn't work out how to fix this, so I wrote [this workaround helper function](helpers/api-workaround.js) which checks to see if the data was returned, and if not reads some data from a json file instead. The data in the json files is real data downloaded from the API. I didn't test this function, and it's excluded from the test coverage calculations.
 
-This means that if the API isn't returning data when you run the app then only the product details pages where I saved the data will work. The first four grid items should be OK. The helper function will output to the server log whether the API returned the data or not.
+This means that if the API isn't returning data when you run the app then only the product details pages where I saved the data will work. The first four grid items should be OK. The helper function will report to the server log whether the API returned the data or not.
 
 ## Technology used
 
